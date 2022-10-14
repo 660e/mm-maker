@@ -1,0 +1,22 @@
+{
+  "name": "mm-maker",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "live-server ./src --port=1991"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/660e/mm-maker.git"
+  },
+  "author": "660e",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/660e/mm-maker/issues"
+  },
+  "homepage": "https://github.com/660e/mm-maker#readme",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
