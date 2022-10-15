@@ -1,0 +1,6 @@
+[
+null,
+{"id":1,"flags":[16],"mode":1,"name":"","note":"","tilesetNames":["","","","","","","","",""]},
+{"id":2,"flags":[16],"mode":1,"name":"","note":"","tilesetNames":["","","","","","","","",""]},
+{"id":3,"flags":[16],"mode":1,"name":"内部","note":"","tilesetNames":["","","","","inside_a5","","","",""]}
+]
