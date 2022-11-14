@@ -4,12 +4,32 @@
 
 Scene_Menu.prototype.create = function () {
   Scene_MenuBase.prototype.create.call(this);
-  // this.createCommandWindow();
+  this.createCommandWindow();
   this.createGoldWindow();
 };
 
 Scene_Menu.prototype.start = function () {
   Scene_MenuBase.prototype.start.call(this);
+};
+
+Scene_Menu.prototype.createCommandWindow = function () {
+  const rect = this.commandWindowRect();
+  const commandWindow = new Window_MenuCommand(rect);
+
+  commandWindow.setHandler('item', this.commandItem.bind(this));
+
+  commandWindow.setHandler('cancel', this.popScene.bind(this));
+
+  this.addWindow(commandWindow);
+  this._commandWindow = commandWindow;
+};
+
+Scene_Menu.prototype.commandWindowRect = function () {
+  const ww = Graphics.width;
+  const wh = this.calcWindowHeight(1);
+  const wx = 0;
+  const wy = Graphics.height - wh;
+  return _.Rectangle(wx, wy, ww, wh);
 };
 
 Scene_Menu.prototype.goldWindowRect = function () {
@@ -51,4 +71,16 @@ Scene_MenuBase.prototype.createBackground = function () {
   this._backgroundSprite = new Sprite();
   this._backgroundSprite.bitmap = SceneManager.backgroundBitmap();
   this.addChild(this._backgroundSprite);
+};
+
+// ----------------------------------------------------------------------
+// Scene_Item
+// ----------------------------------------------------------------------
+
+Scene_Item.prototype.create = function () {
+  Scene_ItemBase.prototype.create.call(this);
+  // this.createHelpWindow();
+  this.createCategoryWindow();
+  // this.createItemWindow();
+  // this.createActorWindow();
 };
