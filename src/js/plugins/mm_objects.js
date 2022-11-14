@@ -1,7 +1,7 @@
 // ----------------------------------------------------------------------
-// ColorManager
+// Game_System
 // ----------------------------------------------------------------------
 
-ColorManager.loadWindowskin = function () {
-  this._windowskin = ImageManager.loadSystem('sys_window');
+Game_System.prototype.windowPadding = function () {
+  return 24;
 };
