@@ -1,20 +1,20 @@
-const _ = {};
+const _ = {
+  initialize: function () {
+    for (let i = 1; i <= $dataSystem.advanced.screenWidth / $dataSystem.tileSize; i++) {
+      this[`COL_${i < 10 ? '0' : ''}${i}`] = $dataSystem.tileSize * i;
+    }
+  },
 
-(() => {
-  for (let i = 1; i <= 17; i++) {
-    _[`COL_${i < 10 ? '0' : ''}${i}`] = 48 * i;
-  }
-
-  _.TextManager = {
+  TextManager: {
     command: {
-      'equip': '装备',
-      'item': '道具',
-      'get-on-off': '乘降',
-      'navigate': '传真',
       'asset': '战车',
+      'equip': '装备',
+      'get-on-off': '乘降',
+      'item': '道具',
+      'navigate': '传真',
       'system': '系统'
     }
-  };
+  },
 
-  _.Rectangle = (x, y, width, height) => new Rectangle(x - 4, y - 4, width, height);
-})();
+  Rectangle: (x, y, width, height) => new Rectangle(x - 4, y - 4, width, height)
+};
