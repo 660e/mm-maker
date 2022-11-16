@@ -15,27 +15,27 @@ Scene_Menu.prototype.createCommandWindow = function () {
 };
 
 Scene_Menu.prototype.commandWindowRect = function () {
-  const ww = _.LayoutManager.col_4;
+  const ww = $q.col_4;
   const wh = this.calcWindowHeight(3);
   const wx = 0;
   const wy = Graphics.height - wh;
-  return _.Rectangle(wx, wy, ww, wh);
+  return $u.Rectangle(wx, wy, ww, wh);
 };
 
 Scene_Menu.prototype.goldWindowRect = function () {
-  const ww = _.LayoutManager.col_5;
+  const ww = $q.col_5;
   const wh = this.calcWindowHeight(1);
   const wx = Graphics.width - ww;
   const wy = 0;
-  return _.Rectangle(wx, wy, ww, wh);
+  return $u.Rectangle(wx, wy, ww, wh);
 };
 
 Scene_Menu.prototype.statusWindowRect = function () {
-  const ww = _.LayoutManager.col_13;
+  const ww = $q.col_13;
   const wh = this.calcWindowHeight(3);
   const wx = Graphics.width - ww;
   const wy = Graphics.height - wh;
-  return _.Rectangle(wx, wy, ww, wh);
+  return $u.Rectangle(wx, wy, ww, wh);
 };
 
 // ----------------------------------------------------------------------
@@ -45,7 +45,7 @@ Scene_Menu.prototype.statusWindowRect = function () {
 Scene_Boot.prototype.start = function () {
   Scene_Base.prototype.start.call(this);
 
-  _.initialize();
+  $u.Initialize();
 
   SoundManager.preloadImportantSounds();
   if (DataManager.isBattleTest()) {

@@ -3,9 +3,9 @@
 // ----------------------------------------------------------------------
 
 Sprite_Gauge.prototype.bitmapWidth = function () {
-  return _.LayoutManager.col_3;
+  return $q.col_3;
 };
 
 Sprite_Gauge.prototype.bitmapHeight = function () {
-  return _.LayoutManager.height.line;
+  return $q.height.line;
 };
