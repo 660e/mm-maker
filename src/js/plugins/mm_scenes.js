@@ -42,25 +42,6 @@ Scene_Menu.prototype.statusWindowRect = function () {
 // Scene_Boot
 // ----------------------------------------------------------------------
 
-Scene_Boot.prototype.start = function () {
-  Scene_Base.prototype.start.call(this);
-
-  $u.Initialize();
-
-  SoundManager.preloadImportantSounds();
-  if (DataManager.isBattleTest()) {
-    DataManager.setupBattleTest();
-    SceneManager.goto(Scene_Battle);
-  } else if (DataManager.isEventTest()) {
-    DataManager.setupEventTest();
-    SceneManager.goto(Scene_Map);
-  } else {
-    this.startNormalGame();
-  }
-  this.resizeScreen();
-  this.updateDocumentTitle();
-};
-
 Scene_Boot.prototype.startNormalGame = function () {
   this.disableTouchUI();
   this.checkPlayerLocation();
