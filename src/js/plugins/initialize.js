@@ -1,7 +1,18 @@
 const _ = {
   initialize: function () {
+    this.LayoutManager.height.line = this.LayoutManager.height.text + this.LayoutManager.padding.y * 2;
     for (let i = 1; i <= $dataSystem.advanced.screenWidth / $dataSystem.tileSize; i++) {
-      this[`COL_${i < 10 ? '0' : ''}${i}`] = $dataSystem.tileSize * i;
+      this.LayoutManager[`col_${i}`] = $dataSystem.tileSize * i;
+    }
+  },
+
+  LayoutManager: {
+    padding: {
+      x: 12,
+      y: 6
+    },
+    height: {
+      text: 24
     }
   },
 

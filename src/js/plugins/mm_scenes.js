@@ -2,18 +2,6 @@
 // Scene_Menu
 // ----------------------------------------------------------------------
 
-Scene_Menu.prototype.create = function () {
-  Scene_MenuBase.prototype.create.call(this);
-  this.createCommandWindow();
-  this.createGoldWindow();
-  // this.createStatusWindow();
-};
-
-Scene_Menu.prototype.start = function () {
-  Scene_MenuBase.prototype.start.call(this);
-  // this._statusWindow.refresh();
-};
-
 Scene_Menu.prototype.createCommandWindow = function () {
   const rect = this.commandWindowRect();
   const commandWindow = new Window_MenuCommand(rect);
@@ -27,7 +15,7 @@ Scene_Menu.prototype.createCommandWindow = function () {
 };
 
 Scene_Menu.prototype.commandWindowRect = function () {
-  const ww = _.COL_04;
+  const ww = _.LayoutManager.col_4;
   const wh = this.calcWindowHeight(3);
   const wx = 0;
   const wy = Graphics.height - wh;
@@ -35,10 +23,18 @@ Scene_Menu.prototype.commandWindowRect = function () {
 };
 
 Scene_Menu.prototype.goldWindowRect = function () {
-  const ww = _.COL_05;
+  const ww = _.LayoutManager.col_5;
   const wh = this.calcWindowHeight(1);
   const wx = Graphics.width - ww;
   const wy = 0;
+  return _.Rectangle(wx, wy, ww, wh);
+};
+
+Scene_Menu.prototype.statusWindowRect = function () {
+  const ww = _.LayoutManager.col_13;
+  const wh = this.calcWindowHeight(3);
+  const wx = Graphics.width - ww;
+  const wy = Graphics.height - wh;
   return _.Rectangle(wx, wy, ww, wh);
 };
 

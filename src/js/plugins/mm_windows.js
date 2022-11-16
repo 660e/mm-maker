@@ -25,6 +25,22 @@ Window_Selectable.prototype.itemRect = function (index) {
 };
 
 // ----------------------------------------------------------------------
+// Window_StatusBase
+// ----------------------------------------------------------------------
+
+Window_StatusBase.prototype.placeBasicGauges = function (actor, x, y) {
+  const hpx = this.innerWidth - _.LayoutManager.col_3 * 2 - _.LayoutManager.padding.x * 3;
+  const spx = this.innerWidth - _.LayoutManager.col_3 - _.LayoutManager.padding.x;
+  this.placeGauge(actor, 'hp', hpx, y);
+  this.placeGauge(actor, 'mp', spx, y);
+};
+
+Window_StatusBase.prototype.drawActorSimpleStatus = function (actor, x, y) {
+  this.drawActorName(actor, x + _.LayoutManager.padding.x, y, _.LayoutManager.col_3);
+  this.placeBasicGauges(actor, x, y);
+};
+
+// ----------------------------------------------------------------------
 // Window_MenuCommand
 // ----------------------------------------------------------------------
 
@@ -35,15 +51,29 @@ Window_MenuCommand.prototype.initialize = function (rect) {
 };
 
 Window_MenuCommand.prototype.makeCommandList = function () {
-  this.addOriginalCommands();
+  ['item', 'get-on-off', 'equip', 'navigate', 'asset', 'system'].forEach(c => {
+    this.addCommand(_.TextManager.command[c], c);
+  });
 };
 
 Window_MenuCommand.prototype.maxCols = function () {
   return 2;
 };
 
-Window_MenuCommand.prototype.addOriginalCommands = function () {
-  ['item', 'get-on-off', 'equip', 'navigate', 'asset', 'system'].forEach(c => {
-    this.addCommand(_.TextManager.command[c], c);
-  });
+// ----------------------------------------------------------------------
+// Window_MenuStatus
+// ----------------------------------------------------------------------
+
+Window_MenuStatus.prototype.numVisibleRows = function () {
+  return 3;
+};
+
+Window_MenuStatus.prototype.drawItem = function (index) {
+  this.drawItemStatus(index);
+};
+
+Window_MenuStatus.prototype.drawItemStatus = function (index) {
+  const actor = this.actor(index);
+  const rect = this.itemRect(index);
+  this.drawActorSimpleStatus(actor, rect.x, rect.y);
 };
