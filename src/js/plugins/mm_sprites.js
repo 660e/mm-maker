@@ -100,7 +100,7 @@ Sprite_Gauge.prototype.labelColor = function () {
 };
 
 Sprite_Gauge.prototype.labelOutlineColor = function () {
-  return $c.normal;
+  return $c.outline;
 };
 
 Sprite_Gauge.prototype.labelOutlineWidth = function () {
@@ -112,7 +112,7 @@ Sprite_Gauge.prototype.valueColor = function () {
 };
 
 Sprite_Gauge.prototype.valueOutlineColor = function () {
-  return $c.normal;
+  return $c.outline;
 };
 
 Sprite_Gauge.prototype.valueOutlineWidth = function () {
@@ -129,11 +129,25 @@ Sprite_Gauge.prototype.drawGauge = function () {
 
 Sprite_Gauge.prototype.drawGaugeRect = function (x, y, width, height) {
   const rate = this.gaugeRate();
-  const fillW = Math.floor((width - 2) * rate);
+  const fillW = Math.floor(width * rate);
   const fillH = height;
   const color0 = this.gaugeBackColor();
   const color1 = this.gaugeColor1();
   const color2 = this.gaugeColor2();
   this.bitmap.fillRect(x, y, width, height, color0);
   this.bitmap.gradientFillRect(x, y, fillW, fillH, color1, color2);
+};
+
+Sprite_Gauge.prototype.labelOpacity = function () {
+  return 255;
+};
+
+Sprite_Gauge.prototype.drawValue = function () {
+  const currentValue = this.currentValue();
+  const x = 0;
+  const y = this.labelY();
+  const width = this.bitmapWidth();
+  const height = this.textHeight();
+  this.setupValueFont();
+  this.bitmap.drawText(currentValue, x, y, width, height, 'right');
 };

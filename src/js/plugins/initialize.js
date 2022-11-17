@@ -2,7 +2,8 @@ const $c = {
   normal: '#e0e0e0',
   damage: '#ef0000',
   health: '#7bff73',
-  soukou: '#fff76b'
+  soukou: '#fff76b',
+  outline: '#1d1d1d'
 };
 
 const $q = {
