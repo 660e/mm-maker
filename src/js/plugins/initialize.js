@@ -1,22 +1,21 @@
-const $c = {};
-
-const $i = {};
+const $c = {
+  normal: '#e0e0e0',
+  damage: '#ef0000',
+  health: '#7bff73',
+  soukou: '#fff76b'
+};
 
 const $q = {
-  height: {
-    line: 36,
-    text: 24
-  },
+  fontSize1: 24,
+  fontSize2: 18,
+  tileSize: 48,
+  itemHeight: 36,
+  gaugeHeight: 3,
   padding: {
     x: 12,
     y: 6
-  },
-  size: {
-    tile: 48
   }
 };
-
-const $s = {};
 
 const $t = {
   command: {
@@ -35,7 +34,11 @@ const $t = {
     toss: '丢弃'
   },
   interface: {
-    gold: 'G'
+    gold: 'G',
+    lv: 'LV',
+    exp: 'EXP',
+    hp: 'HP',
+    sp: 'SP'
   }
 };
 
@@ -44,5 +47,5 @@ const $u = {
 };
 
 for (let i = 1; i <= 17; i++) {
-  $q[`col_${i}`] = $q.size.tile * i;
+  $q[`col_${i}`] = $q.tileSize * i;
 }

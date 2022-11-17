@@ -3,7 +3,6 @@
 // ----------------------------------------------------------------------
 
 Window_Base.prototype.loadWindowskin = function () {
-  this._margin = 12;
   this.windowskin = ImageManager.loadSystem('sys_window');
 };
 
@@ -32,7 +31,7 @@ Window_StatusBase.prototype.placeBasicGauges = function (actor, x, y) {
   const hpx = this.innerWidth - $q.col_3 * 2 - $q.padding.x * 3;
   const spx = this.innerWidth - $q.col_3 - $q.padding.x;
   this.placeGauge(actor, 'hp', hpx, y);
-  this.placeGauge(actor, 'mp', spx, y);
+  this.placeGauge(actor, 'sp', spx, y);
 };
 
 Window_StatusBase.prototype.drawActorSimpleStatus = function (actor, x, y) {
@@ -51,6 +50,10 @@ Window_MenuCommand.prototype.initialize = function (rect) {
 };
 
 Window_MenuCommand.prototype.makeCommandList = function () {
+  this.addOriginalCommands();
+};
+
+Window_MenuCommand.prototype.addOriginalCommands = function () {
   ['item', 'drive', 'equip', 'navigate', 'asset', 'system'].forEach(c => {
     this.addCommand($t.command[c], c);
   });
