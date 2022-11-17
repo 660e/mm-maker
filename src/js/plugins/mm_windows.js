@@ -23,6 +23,17 @@ Window_Selectable.prototype.itemRect = function (index) {
   return new Rectangle(x, y, itemWidth, itemHeight);
 };
 
+Window_Selectable.prototype.drawBackgroundRect = function (rect) {
+  const c1 = 'rgba(255, 255, 255, 0.1)';
+  const c2 = 'rgba(255, 255, 255, 0.1)';
+  const x = rect.x;
+  const y = rect.y;
+  const w = rect.width;
+  const h = rect.height;
+  this.contentsBack.gradientFillRect(x, y, w, h, c1, c2, true);
+  this.contentsBack.strokeRect(x, y, w, h, c1);
+};
+
 // ----------------------------------------------------------------------
 // Window_StatusBase
 // ----------------------------------------------------------------------

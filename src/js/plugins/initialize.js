@@ -1,9 +1,9 @@
 const $c = {
-  normal: '#e0e0e0',
-  damage: '#ef0000',
-  health: '#7bff73',
-  soukou: '#fff76b',
-  outline: '#1d1d1d'
+  normalColor: '#e0e0e0',
+  gaugeBackColor: '#ef0000',
+  hpGaugeColor: '#7bff73',
+  spGaugeColor: '#fff76b',
+  outlineColor: '#1d1d1d'
 };
 
 const $q = {

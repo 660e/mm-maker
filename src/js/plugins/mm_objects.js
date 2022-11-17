@@ -7,5 +7,5 @@ Game_System.prototype.windowPadding = function () {
 };
 
 Game_System.prototype.windowOpacity = function () {
-  return 160;
+  return 255;
 };

@@ -70,37 +70,37 @@ Sprite_Gauge.prototype.label = function () {
 };
 
 Sprite_Gauge.prototype.gaugeBackColor = function () {
-  return $c.damage;
+  return $c.gaugeBackColor;
 };
 
 Sprite_Gauge.prototype.gaugeColor1 = function () {
   switch (this._statusType) {
     case 'hp':
-      return $c.health;
+      return $c.hpGaugeColor;
     case 'sp':
-      return $c.soukou;
+      return $c.spGaugeColor;
     default:
-      return $c.normal;
+      return $c.normalColor;
   }
 };
 
 Sprite_Gauge.prototype.gaugeColor2 = function () {
   switch (this._statusType) {
     case 'hp':
-      return $c.health;
+      return $c.hpGaugeColor;
     case 'sp':
-      return $c.soukou;
+      return $c.spGaugeColor;
     default:
-      return $c.normal;
+      return $c.normalColor;
   }
 };
 
 Sprite_Gauge.prototype.labelColor = function () {
-  return $c.normal;
+  return $c.normalColor;
 };
 
 Sprite_Gauge.prototype.labelOutlineColor = function () {
-  return $c.outline;
+  return $c.outlineColor;
 };
 
 Sprite_Gauge.prototype.labelOutlineWidth = function () {
@@ -108,11 +108,11 @@ Sprite_Gauge.prototype.labelOutlineWidth = function () {
 };
 
 Sprite_Gauge.prototype.valueColor = function () {
-  return $c.normal;
+  return $c.normalColor;
 };
 
 Sprite_Gauge.prototype.valueOutlineColor = function () {
-  return $c.outline;
+  return $c.outlineColor;
 };
 
 Sprite_Gauge.prototype.valueOutlineWidth = function () {
