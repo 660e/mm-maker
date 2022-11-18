@@ -6,6 +6,14 @@ Window_Base.prototype.loadWindowskin = function () {
   this.windowskin = ImageManager.loadSystem('sys_window');
 };
 
+Window_Base.prototype.drawCurrencyValue = function (value, unit, x, y, width) {
+  const unitWidth = this.textWidth(unit);
+  this.resetTextColor();
+  this.drawText(value, x + $q.padding.x, y, width - $q.padding.x * 2 - unitWidth - $q.gap.x, 'right');
+  this.changeTextColor(ColorManager.systemColor());
+  this.drawText(unit, x + width - unitWidth - $q.padding.x, y, unitWidth);
+};
+
 // ----------------------------------------------------------------------
 // Window_Selectable
 // ----------------------------------------------------------------------
@@ -32,6 +40,23 @@ Window_Selectable.prototype.drawBackgroundRect = function (rect) {
   const h = rect.height;
   this.contentsBack.gradientFillRect(x, y, w, h, c1, c2, true);
   this.contentsBack.strokeRect(x, y, w, h, c1);
+};
+
+// ----------------------------------------------------------------------
+// Window_Gold
+// ----------------------------------------------------------------------
+
+Window_Gold.prototype.refresh = function () {
+  const rect = this.itemRect(0);
+  const x = rect.x;
+  const y = rect.y;
+  const width = rect.width;
+  this.contents.clear();
+  this.drawCurrencyValue(this.value(), this.currencyUnit(), x, y, width);
+};
+
+Window_Gold.prototype.currencyUnit = function () {
+  return $t.interface.gold;
 };
 
 // ----------------------------------------------------------------------

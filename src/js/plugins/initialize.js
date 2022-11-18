@@ -15,6 +15,9 @@ const $q = {
   padding: {
     x: 12,
     y: 6
+  },
+  gap: {
+    x: 6
   }
 };
 
