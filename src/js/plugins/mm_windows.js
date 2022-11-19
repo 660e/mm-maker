@@ -10,7 +10,7 @@ Window_Base.prototype.drawCurrencyValue = function (value, unit, x, y, width) {
   const unitWidth = this.textWidth(unit);
   this.resetTextColor();
   this.drawText(value, x + $q.padding.x, y, width - $q.padding.x * 2 - unitWidth - $q.gap.x, 'right');
-  this.changeTextColor(ColorManager.systemColor());
+  this.changeTextColor($c.systemColor);
   this.drawText(unit, x + width - unitWidth - $q.padding.x, y, unitWidth);
 };
 
@@ -40,6 +40,32 @@ Window_Selectable.prototype.drawBackgroundRect = function (rect) {
   const h = rect.height;
   this.contentsBack.gradientFillRect(x, y, w, h, c1, c2, true);
   this.contentsBack.strokeRect(x, y, w, h, c1);
+};
+
+// ----------------------------------------------------------------------
+// Window_SenceName
+// ----------------------------------------------------------------------
+
+function Window_SceneName() {
+  this.initialize(...arguments);
+}
+
+Window_SceneName.prototype = Object.create(Window_Selectable.prototype);
+Window_SceneName.prototype.constructor = Window_SceneName;
+
+Window_SceneName.prototype.initialize = function (rect) {
+  Window_Selectable.prototype.initialize.call(this, rect);
+  this.refresh();
+};
+
+Window_SceneName.prototype.refresh = function () {
+  const rect = this.itemRect(0);
+  const x = rect.x + $q.padding.x;
+  const y = rect.y;
+  const width = rect.width - $q.padding.x * 2;
+  this.contents.clear();
+  this.resetTextColor();
+  this.drawText($gameMap.displayName(), x, y, width);
 };
 
 // ----------------------------------------------------------------------
@@ -116,3 +142,9 @@ Window_MenuStatus.prototype.drawItemStatus = function (index) {
   const rect = this.itemRect(index);
   this.drawActorSimpleStatus(actor, rect.x, rect.y);
 };
+
+// ----------------------------------------------------------------------
+// Window_MapName
+// ----------------------------------------------------------------------
+
+Window_MapName.prototype.refresh = function () {};

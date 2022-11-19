@@ -3,7 +3,8 @@ const $c = {
   gaugeBackColor: '#ef0000',
   hpGaugeColor: '#7bff73',
   spGaugeColor: '#fff76b',
-  outlineColor: '#1d1d1d'
+  outlineColor: '#1d1d1d',
+  systemColor: '#2196f3'
 };
 
 const $q = {

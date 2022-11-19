@@ -2,6 +2,28 @@
 // Scene_Menu
 // ----------------------------------------------------------------------
 
+Scene_Menu.prototype.create = function () {
+  Scene_MenuBase.prototype.create.call(this);
+  this.createNameWindow();
+  this.createGoldWindow();
+  this.createCommandWindow();
+  this.createStatusWindow();
+};
+
+Scene_Menu.prototype.createNameWindow = function () {
+  const rect = this.nameWindowRect();
+  this._nameWindow = new Window_SceneName(rect);
+  this.addWindow(this._nameWindow);
+};
+
+Scene_Menu.prototype.nameWindowRect = function () {
+  const ww = $q.col_12;
+  const wh = this.calcWindowHeight(1);
+  const wx = 0;
+  const wy = 0;
+  return $u.Rectangle(wx, wy, ww, wh);
+};
+
 Scene_Menu.prototype.createCommandWindow = function () {
   const rect = this.commandWindowRect();
   const commandWindow = new Window_MenuCommand(rect);
@@ -14,19 +36,19 @@ Scene_Menu.prototype.createCommandWindow = function () {
   this._commandWindow = commandWindow;
 };
 
-Scene_Menu.prototype.commandWindowRect = function () {
-  const ww = $q.col_4;
-  const wh = this.calcWindowHeight(3);
-  const wx = 0;
-  const wy = Graphics.height - wh;
-  return $u.Rectangle(wx, wy, ww, wh);
-};
-
 Scene_Menu.prototype.goldWindowRect = function () {
   const ww = $q.col_5;
   const wh = this.calcWindowHeight(1);
   const wx = Graphics.width - ww;
   const wy = 0;
+  return $u.Rectangle(wx, wy, ww, wh);
+};
+
+Scene_Menu.prototype.commandWindowRect = function () {
+  const ww = $q.col_4;
+  const wh = this.calcWindowHeight(3);
+  const wx = 0;
+  const wy = Graphics.height - wh;
   return $u.Rectangle(wx, wy, ww, wh);
 };
 
