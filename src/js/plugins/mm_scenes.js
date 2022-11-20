@@ -1,22 +1,47 @@
 // ----------------------------------------------------------------------
+// Scene_Message
+// ----------------------------------------------------------------------
+
+Scene_Message.prototype.createAllWindows = function () {
+  this.createMessageWindow();
+  this.createNameBoxWindow();
+
+  // TODO
+  this.createScrollTextWindow();
+  this.createGoldWindow();
+  this.createChoiceListWindow();
+  this.createNumberInputWindow();
+  this.createEventItemWindow();
+  this.associateWindows();
+};
+
+Scene_Message.prototype.messageWindowRect = function () {
+  const ww = Graphics.width;
+  const wh = this.calcWindowHeight(3);
+  const wx = 0;
+  const wy = Graphics.height - wh;
+  return $u.Rectangle(wx, wy, ww, wh);
+};
+
+// ----------------------------------------------------------------------
 // Scene_Menu
 // ----------------------------------------------------------------------
 
 Scene_Menu.prototype.create = function () {
   Scene_MenuBase.prototype.create.call(this);
-  this.createNameWindow();
+  this.createSceneNameWindow();
   this.createGoldWindow();
   this.createCommandWindow();
   this.createStatusWindow();
 };
 
-Scene_Menu.prototype.createNameWindow = function () {
-  const rect = this.nameWindowRect();
-  this._nameWindow = new Window_SceneName(rect);
-  this.addWindow(this._nameWindow);
+Scene_Menu.prototype.createSceneNameWindow = function () {
+  const rect = this.sceneNameWindowRect();
+  this._sceneNameWindow = new Window_SceneName(rect);
+  this.addWindow(this._sceneNameWindow);
 };
 
-Scene_Menu.prototype.nameWindowRect = function () {
+Scene_Menu.prototype.sceneNameWindowRect = function () {
   const ww = $q.col_12;
   const wh = this.calcWindowHeight(1);
   const wx = 0;
@@ -28,8 +53,8 @@ Scene_Menu.prototype.createCommandWindow = function () {
   const rect = this.commandWindowRect();
   const commandWindow = new Window_MenuCommand(rect);
 
+  // TODO
   commandWindow.setHandler('item', this.commandItem.bind(this));
-
   commandWindow.setHandler('cancel', this.popScene.bind(this));
 
   this.addWindow(commandWindow);
@@ -69,6 +94,7 @@ Scene_Boot.prototype.startNormalGame = function () {
   this.checkPlayerLocation();
   DataManager.setupNewGame();
 
+  // TODO
   if ($gameTemp.isPlaytest()) {
     SceneManager.goto(Scene_Title);
     Window_TitleCommand.initCommandPosition();
@@ -78,9 +104,8 @@ Scene_Boot.prototype.startNormalGame = function () {
 };
 
 Scene_Boot.prototype.disableTouchUI = function () {
+  // TODO
   ConfigManager.touchUI = false;
-
-  console.warn('TODO -> touch mask');
 };
 
 // ----------------------------------------------------------------------
@@ -99,6 +124,8 @@ Scene_MenuBase.prototype.createBackground = function () {
 
 Scene_Item.prototype.create = function () {
   Scene_ItemBase.prototype.create.call(this);
+
+  // TODO
   // this.createHelpWindow();
   this.createCategoryWindow();
   // this.createItemWindow();

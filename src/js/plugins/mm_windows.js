@@ -2,6 +2,10 @@
 // Window_Base
 // ----------------------------------------------------------------------
 
+Window_Base.prototype.itemPadding = function () {
+  return $q.padding.x;
+};
+
 Window_Base.prototype.loadWindowskin = function () {
   this.windowskin = ImageManager.loadSystem('sys_window');
 };
@@ -12,6 +16,10 @@ Window_Base.prototype.drawCurrencyValue = function (value, unit, x, y, width) {
   this.drawText(value, x + $q.padding.x, y, width - $q.padding.x * 2 - unitWidth - $q.gap.x, 'right');
   this.changeTextColor($c.systemColor);
   this.drawText(unit, x + width - unitWidth - $q.padding.x, y, unitWidth);
+};
+
+Window_Base.prototype.setBackgroundType = function (type) {
+  this.opacity = 255;
 };
 
 // ----------------------------------------------------------------------
@@ -51,6 +59,7 @@ function Window_SceneName() {
 }
 
 Window_SceneName.prototype = Object.create(Window_Selectable.prototype);
+
 Window_SceneName.prototype.constructor = Window_SceneName;
 
 Window_SceneName.prototype.initialize = function (rect) {
@@ -148,3 +157,34 @@ Window_MenuStatus.prototype.drawItemStatus = function (index) {
 // ----------------------------------------------------------------------
 
 Window_MapName.prototype.refresh = function () {};
+
+// ----------------------------------------------------------------------
+// Window_NameBox
+// ----------------------------------------------------------------------
+
+Window_NameBox.prototype.setName = function () {};
+
+// ----------------------------------------------------------------------
+// Window_Message
+// ----------------------------------------------------------------------
+
+Window_Message.prototype.startMessage = function () {
+  const text = $gameMessage.allText();
+  const textState = this.createTextState(text, 0, 0, 0);
+  textState.x = $q.padding.x;
+  textState.startX = textState.x;
+  this._textState = textState;
+  this.newPage(this._textState);
+  this.updatePlacement();
+  this.updateBackground();
+  this.open();
+  this._nameBoxWindow.start();
+};
+
+Window_Message.prototype.updatePlacement = function () {
+  const goldWindow = this._goldWindow;
+  this._positionType = $gameMessage.positionType();
+  if (goldWindow) {
+    goldWindow.y = this.y > 0 ? 0 : Graphics.boxHeight - goldWindow.height;
+  }
+};
