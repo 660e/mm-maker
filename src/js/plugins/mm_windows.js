@@ -125,7 +125,7 @@ Window_MenuCommand.prototype.makeCommandList = function () {
 };
 
 Window_MenuCommand.prototype.addOriginalCommands = function () {
-  ['item', 'drive', 'equip', 'navigate', 'asset', 'system'].forEach(c => {
+  ['item', 'drive', 'equip', 'navigate', 'asset', 'option'].forEach(c => {
     this.addCommand($t.command[c], c);
   });
 };
@@ -163,6 +163,18 @@ Window_MapName.prototype.refresh = function () {};
 // ----------------------------------------------------------------------
 
 Window_NameBox.prototype.setName = function () {};
+
+// ----------------------------------------------------------------------
+// Window_ChoiceList
+// ----------------------------------------------------------------------
+
+Window_ChoiceList.prototype.windowX = function () {
+  return Graphics.width - this.windowWidth() - 4;
+};
+
+Window_ChoiceList.prototype.windowWidth = function () {
+  return Math.max($q.col_4, this.maxChoiceWidth() + this.padding);
+};
 
 // ----------------------------------------------------------------------
 // Window_Message

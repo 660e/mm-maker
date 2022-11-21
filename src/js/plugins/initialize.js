@@ -29,14 +29,14 @@ const $t = {
     asset: '战车',
     drive: '乘降',
     navigate: '传真',
-    system: '系统',
+    option: '设置',
 
-    confirm: '确定',
+    ok: '确定',
     cancel: '取消',
 
     use: '使用',
     trade: '交给',
-    toss: '丢弃'
+    discard: '丢弃'
   },
   interface: {
     gold: 'G',
