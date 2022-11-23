@@ -200,3 +200,29 @@ Window_Message.prototype.updatePlacement = function () {
     goldWindow.y = this.y > 0 ? 0 : Graphics.boxHeight - goldWindow.height;
   }
 };
+
+// ----------------------------------------------------------------------
+// Window_TeamChoice
+// ----------------------------------------------------------------------
+
+function Window_TeamChoice() {
+  this.initialize(...arguments);
+}
+
+Window_TeamChoice.prototype = Object.create(Window_Selectable.prototype);
+
+Window_TeamChoice.prototype.constructor = Window_TeamChoice;
+
+Window_TeamChoice.prototype.initialize = function (rect) {
+  Window_Selectable.prototype.initialize.call(this, rect);
+  this.refresh();
+};
+
+Window_TeamChoice.prototype.refresh = function () {
+  this.contents.clear();
+};
+
+Window_TeamChoice.prototype.open = function () {
+  this.refresh();
+  Window_Selectable.prototype.open.call(this);
+};

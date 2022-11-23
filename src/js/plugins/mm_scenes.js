@@ -54,7 +54,8 @@ Scene_Menu.prototype.createCommandWindow = function () {
   const commandWindow = new Window_MenuCommand(rect);
 
   // TODO
-  commandWindow.setHandler('item', this.commandItem.bind(this));
+  commandWindow.setHandler('item', this.commandTeam.bind(this));
+  commandWindow.setHandler('equip', this.commandTeam.bind(this));
   commandWindow.setHandler('cancel', this.popScene.bind(this));
 
   this.addWindow(commandWindow);
@@ -83,6 +84,10 @@ Scene_Menu.prototype.statusWindowRect = function () {
   const wx = Graphics.width - ww;
   const wy = Graphics.height - wh;
   return $u.Rectangle(wx, wy, ww, wh);
+};
+
+Scene_Menu.prototype.commandTeam = function () {
+  SceneManager.push(Scene_TeamChoice);
 };
 
 // ----------------------------------------------------------------------
@@ -130,4 +135,38 @@ Scene_Item.prototype.create = function () {
   this.createCategoryWindow();
   // this.createItemWindow();
   // this.createActorWindow();
+};
+
+// ----------------------------------------------------------------------
+// Scene_TeamChoice
+// ----------------------------------------------------------------------
+
+function Scene_TeamChoice() {
+  this.initialize(...arguments);
+}
+
+Scene_TeamChoice.prototype = Object.create(Scene_MenuBase.prototype);
+
+Scene_TeamChoice.prototype.constructor = Scene_TeamChoice;
+
+Scene_TeamChoice.prototype.initialize = function () {
+  Scene_MenuBase.prototype.initialize.call(this);
+};
+
+Scene_TeamChoice.prototype.create = function () {
+  Scene_MenuBase.prototype.create.call(this);
+
+  const ww = $q.col_8;
+  const wh = this.calcWindowHeight(4);
+  const wx = (Graphics.width - ww) / 2;
+  const wy = (Graphics.height - wh) / 2;
+  const rect = $u.Rectangle(wx, wy, ww, wh);
+
+  this._teamChoiceWindow = new Window_TeamChoice(rect);
+
+  this.addWindow(this._teamChoiceWindow);
+};
+
+Scene_TeamChoice.prototype.start = function () {
+  Scene_MenuBase.prototype.start.call(this);
 };
