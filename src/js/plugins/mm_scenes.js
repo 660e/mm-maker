@@ -124,20 +124,6 @@ Scene_MenuBase.prototype.createBackground = function () {
 };
 
 // ----------------------------------------------------------------------
-// Scene_Item
-// ----------------------------------------------------------------------
-
-Scene_Item.prototype.create = function () {
-  Scene_ItemBase.prototype.create.call(this);
-
-  // TODO
-  // this.createHelpWindow();
-  this.createCategoryWindow();
-  // this.createItemWindow();
-  // this.createActorWindow();
-};
-
-// ----------------------------------------------------------------------
 // Scene_TeamChoice
 // ----------------------------------------------------------------------
 
