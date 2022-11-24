@@ -23,6 +23,7 @@ const $q = {
 };
 
 const $t = {
+  empty: '---',
   command: {
     item: '道具',
     equip: '装备',
@@ -48,6 +49,21 @@ const $t = {
 };
 
 const $u = {
+  Initialize: () => {
+    console.log('Initialize');
+
+    if ($gameTemp.isPlaytest()) {
+      SceneManager.goto(Scene_Title);
+      Window_TitleCommand.initCommandPosition();
+    } else {
+      // SceneManager.goto(Scene_Map);
+      SceneManager.goto(Scene_PartyChoice);
+    }
+
+    $gameActors.actor(1).setDrive(11);
+    $gameActors.actor(2).setDrive(12);
+    $gameActors.actor(3).setDrive(13);
+  },
   Rectangle: (x, y, width, height) => new Rectangle(x - 4, y - 4, width, height)
 };
 

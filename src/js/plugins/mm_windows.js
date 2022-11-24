@@ -202,27 +202,62 @@ Window_Message.prototype.updatePlacement = function () {
 };
 
 // ----------------------------------------------------------------------
-// Window_TeamChoice
+// Window_PartyChoice
 // ----------------------------------------------------------------------
 
-function Window_TeamChoice() {
+function Window_PartyChoice() {
   this.initialize(...arguments);
 }
 
-Window_TeamChoice.prototype = Object.create(Window_Selectable.prototype);
+Window_PartyChoice.prototype = Object.create(Window_HorzCommand.prototype);
 
-Window_TeamChoice.prototype.constructor = Window_TeamChoice;
+Window_PartyChoice.prototype.constructor = Window_PartyChoice;
 
-Window_TeamChoice.prototype.initialize = function (rect) {
-  Window_Selectable.prototype.initialize.call(this, rect);
-  this.refresh();
+Window_PartyChoice.prototype.initialize = function (rect) {
+  Window_HorzCommand.prototype.initialize.call(this, rect);
 };
 
-Window_TeamChoice.prototype.refresh = function () {
-  this.contents.clear();
+Window_PartyChoice.prototype.refresh = function () {
+  this.clearCommandList();
+
+  console.log($gameParty.actors());
+  console.log($gameParty.tanks());
+
+  for (let i = 1; i <= this.maxItems(); i++) {
+    this.addCommand(i, i);
+  }
+
+  this.paint();
 };
 
-Window_TeamChoice.prototype.open = function () {
-  this.refresh();
-  Window_Selectable.prototype.open.call(this);
+Window_PartyChoice.prototype.itemTextAlign = function () {};
+
+Window_PartyChoice.prototype.itemRect = function (index) {
+  const maxCols = this.maxCols();
+  const itemWidth = this.itemWidth();
+  const itemHeight = this.itemHeight();
+  let x = (index % maxCols) * itemWidth;
+  const y = Math.floor(index / maxCols) * itemHeight;
+
+  // if (Math.floor(index / maxCols) === 3) {
+  //   x = itemWidth;
+  // }
+
+  return new Rectangle(x, y, itemWidth, itemHeight);
+};
+
+Window_PartyChoice.prototype.commandName = function (index) {
+  return this._list[index] ? this._list[index].name : $t.empty;
+};
+
+Window_PartyChoice.prototype.isCommandEnabled = function (index) {
+  return this._list[index] ? this._list[index].enabled : false;
+};
+
+Window_PartyChoice.prototype.maxCols = function () {
+  return 2;
+};
+
+Window_PartyChoice.prototype.maxItems = function () {
+  return 8;
 };

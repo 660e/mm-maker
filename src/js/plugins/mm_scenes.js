@@ -1,4 +1,16 @@
 // ----------------------------------------------------------------------
+// Scene_Boot
+// ----------------------------------------------------------------------
+
+Scene_Boot.prototype.startNormalGame = function () {
+  this.checkPlayerLocation();
+  DataManager.setupNewGame();
+  ConfigManager.touchUI = false;
+
+  $u.Initialize();
+};
+
+// ----------------------------------------------------------------------
 // Scene_Message
 // ----------------------------------------------------------------------
 
@@ -87,30 +99,7 @@ Scene_Menu.prototype.statusWindowRect = function () {
 };
 
 Scene_Menu.prototype.commandTeam = function () {
-  SceneManager.push(Scene_TeamChoice);
-};
-
-// ----------------------------------------------------------------------
-// Scene_Boot
-// ----------------------------------------------------------------------
-
-Scene_Boot.prototype.startNormalGame = function () {
-  this.disableTouchUI();
-  this.checkPlayerLocation();
-  DataManager.setupNewGame();
-
-  // TODO
-  if ($gameTemp.isPlaytest()) {
-    SceneManager.goto(Scene_Title);
-    Window_TitleCommand.initCommandPosition();
-  } else {
-    SceneManager.goto(Scene_Map);
-  }
-};
-
-Scene_Boot.prototype.disableTouchUI = function () {
-  // TODO
-  ConfigManager.touchUI = false;
+  SceneManager.push(Scene_PartyChoice);
 };
 
 // ----------------------------------------------------------------------
@@ -124,22 +113,22 @@ Scene_MenuBase.prototype.createBackground = function () {
 };
 
 // ----------------------------------------------------------------------
-// Scene_TeamChoice
+// Scene_PartyChoice
 // ----------------------------------------------------------------------
 
-function Scene_TeamChoice() {
+function Scene_PartyChoice() {
   this.initialize(...arguments);
 }
 
-Scene_TeamChoice.prototype = Object.create(Scene_MenuBase.prototype);
+Scene_PartyChoice.prototype = Object.create(Scene_MenuBase.prototype);
 
-Scene_TeamChoice.prototype.constructor = Scene_TeamChoice;
+Scene_PartyChoice.prototype.constructor = Scene_PartyChoice;
 
-Scene_TeamChoice.prototype.initialize = function () {
+Scene_PartyChoice.prototype.initialize = function () {
   Scene_MenuBase.prototype.initialize.call(this);
 };
 
-Scene_TeamChoice.prototype.create = function () {
+Scene_PartyChoice.prototype.create = function () {
   Scene_MenuBase.prototype.create.call(this);
 
   const ww = $q.col_8;
@@ -148,11 +137,11 @@ Scene_TeamChoice.prototype.create = function () {
   const wy = (Graphics.height - wh) / 2;
   const rect = $u.Rectangle(wx, wy, ww, wh);
 
-  this._teamChoiceWindow = new Window_TeamChoice(rect);
-
-  this.addWindow(this._teamChoiceWindow);
+  this._partyChoiceWindow = new Window_PartyChoice(rect);
+  this._partyChoiceWindow.setHandler('cancel', this.popScene.bind(this));
+  this.addWindow(this._partyChoiceWindow);
 };
 
-Scene_TeamChoice.prototype.start = function () {
+Scene_PartyChoice.prototype.start = function () {
   Scene_MenuBase.prototype.start.call(this);
 };
