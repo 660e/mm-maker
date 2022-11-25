@@ -232,20 +232,6 @@ Window_PartyChoice.prototype.refresh = function () {
 
 Window_PartyChoice.prototype.itemTextAlign = function () {};
 
-Window_PartyChoice.prototype.itemRect = function (index) {
-  const maxCols = this.maxCols();
-  const itemWidth = this.itemWidth();
-  const itemHeight = this.itemHeight();
-  let x = (index % maxCols) * itemWidth;
-  const y = Math.floor(index / maxCols) * itemHeight;
-
-  // if (Math.floor(index / maxCols) === 3) {
-  //   x = itemWidth;
-  // }
-
-  return new Rectangle(x, y, itemWidth, itemHeight);
-};
-
 Window_PartyChoice.prototype.commandName = function (index) {
   return this._list[index] ? this._list[index].name : $t.empty;
 };

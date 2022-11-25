@@ -27,9 +27,9 @@ Game_Actor.prototype.getDrive = function () {
 // ----------------------------------------------------------------------
 
 Game_Party.prototype.actors = function () {
-  return this._actors.map(e => $gameActors.actor(e)).filter(e => e._classId !== 4);
+  return this._actors.filter(e => $dataActors[e].meta.class === 'actor').map(e => $gameActors.actor(e));
 };
 
 Game_Party.prototype.tanks = function () {
-  return this._actors.map(e => $gameActors.actor(e)).filter(e => e._classId === 4);
+  return this._actors.filter(e => $dataActors[e].meta.class === 'tank').map(e => $gameActors.actor(e));
 };

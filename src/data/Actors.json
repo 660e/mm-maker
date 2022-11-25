@@ -1,8 +1,8 @@
 [
 null,
-{"id":1,"battlerName":"","characterIndex":0,"characterName":"actor","classId":1,"equips":[],"faceIndex":0,"faceName":"","traits":[],"initialLevel":1,"maxLevel":99,"name":"雷班纳","nickname":"","note":"","profile":""},
-{"id":2,"battlerName":"","characterIndex":1,"characterName":"actor","classId":2,"equips":[],"faceIndex":0,"faceName":"","traits":[],"initialLevel":1,"maxLevel":99,"name":"克里夫","nickname":"","note":"","profile":""},
-{"id":3,"battlerName":"","characterIndex":2,"characterName":"actor","classId":3,"equips":[],"faceIndex":0,"faceName":"","traits":[],"initialLevel":1,"maxLevel":99,"name":"英格丽特","nickname":"","note":"","profile":""},
+{"id":1,"battlerName":"","characterIndex":0,"characterName":"actor","classId":1,"equips":[],"faceIndex":0,"faceName":"","traits":[],"initialLevel":1,"maxLevel":99,"name":"雷班纳","nickname":"","note":"<class:actor>","profile":""},
+{"id":2,"battlerName":"","characterIndex":1,"characterName":"actor","classId":2,"equips":[],"faceIndex":0,"faceName":"","traits":[],"initialLevel":1,"maxLevel":99,"name":"克里夫","nickname":"","note":"<class:actor>","profile":""},
+{"id":3,"battlerName":"","characterIndex":2,"characterName":"actor","classId":3,"equips":[],"faceIndex":0,"faceName":"","traits":[],"initialLevel":1,"maxLevel":99,"name":"英格丽特","nickname":"","note":"<class:actor>","profile":""},
 {"id":4,"battlerName":"","characterIndex":0,"characterName":"","classId":1,"equips":[0,0,0,0,0],"faceIndex":0,"faceName":"","traits":[],"initialLevel":1,"maxLevel":99,"name":"","nickname":"","note":"","profile":""},
 {"id":5,"battlerName":"","characterIndex":0,"characterName":"","classId":1,"equips":[0,0,0,0,0],"faceIndex":0,"faceName":"","traits":[],"initialLevel":1,"maxLevel":99,"name":"","nickname":"","note":"","profile":""},
 {"id":6,"battlerName":"","characterIndex":0,"characterName":"","classId":1,"equips":[0,0,0,0,0],"faceIndex":0,"faceName":"","traits":[],"initialLevel":1,"maxLevel":99,"name":"","nickname":"","note":"","profile":""},
@@ -10,8 +10,8 @@ null,
 {"id":8,"battlerName":"","characterIndex":0,"characterName":"","classId":1,"equips":[0,0,0,0,0],"faceIndex":0,"faceName":"","traits":[],"initialLevel":1,"maxLevel":99,"name":"","nickname":"","note":"","profile":""},
 {"id":9,"battlerName":"","characterIndex":0,"characterName":"","classId":1,"equips":[0,0,0,0,0],"faceIndex":0,"faceName":"","traits":[],"initialLevel":1,"maxLevel":99,"name":"","nickname":"","note":"","profile":""},
 {"id":10,"battlerName":"","characterIndex":0,"characterName":"","classId":1,"equips":[0,0,0,0,0],"faceIndex":0,"faceName":"","traits":[],"initialLevel":1,"maxLevel":99,"name":"","nickname":"","note":"","profile":""},
-{"id":11,"battlerName":"","characterIndex":0,"characterName":"tank","classId":4,"equips":[],"faceIndex":0,"faceName":"","traits":[],"initialLevel":1,"maxLevel":99,"name":"LEOPARD","nickname":"","note":"","profile":""},
-{"id":12,"battlerName":"","characterIndex":1,"characterName":"tank","classId":4,"equips":[],"faceIndex":0,"faceName":"","traits":[],"initialLevel":1,"maxLevel":99,"name":"ABRAMS","nickname":"","note":"","profile":""},
-{"id":13,"battlerName":"","characterIndex":2,"characterName":"tank","classId":4,"equips":[],"faceIndex":0,"faceName":"","traits":[],"initialLevel":1,"maxLevel":99,"name":"MERKAVA","nickname":"","note":"","profile":""},
-{"id":14,"battlerName":"","characterIndex":3,"characterName":"tank","classId":4,"equips":[],"faceIndex":0,"faceName":"","traits":[],"initialLevel":1,"maxLevel":99,"name":"99A","nickname":"","note":"","profile":""}
+{"id":11,"battlerName":"","characterIndex":0,"characterName":"tank","classId":11,"equips":[],"faceIndex":0,"faceName":"","traits":[],"initialLevel":1,"maxLevel":99,"name":"LEOPARD","nickname":"","note":"<class:tank>","profile":""},
+{"id":12,"battlerName":"","characterIndex":1,"characterName":"tank","classId":12,"equips":[],"faceIndex":0,"faceName":"","traits":[],"initialLevel":1,"maxLevel":99,"name":"ABRAMS","nickname":"","note":"<class:tank>","profile":""},
+{"id":13,"battlerName":"","characterIndex":2,"characterName":"tank","classId":13,"equips":[],"faceIndex":0,"faceName":"","traits":[],"initialLevel":1,"maxLevel":99,"name":"MERKAVA","nickname":"","note":"<class:tank>","profile":""},
+{"id":14,"battlerName":"","characterIndex":3,"characterName":"tank","classId":14,"equips":[],"faceIndex":0,"faceName":"","traits":[],"initialLevel":1,"maxLevel":99,"name":"99A","nickname":"","note":"<class:tank>","profile":""}
 ]
